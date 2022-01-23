@@ -9,13 +9,26 @@ const Today = () => {
     { id: "09", time: "9am", text: ""}
   ];
 
+  // save todo
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // try {
+    //   await addToDo({
+    //     variables: { todoText },
+    //   });
+    // } catch (e) {
+    //   console.error(e);
+    // }
+  };
+
   return (
     <wrapper>
       {todoItems.map(todo => {
         return (
-        <form>
+        <form onSubmit={handleFormSubmit}>
           <div>{ todo.time }</div>
-          <input type="text" id={ todo.id } value={ todo.text} class="" />
+          <input id={ todo.id } value={ todo.text} class=""></input>
           <button>Save</button>
         </form>
         )
