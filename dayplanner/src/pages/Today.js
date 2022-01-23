@@ -21,7 +21,7 @@ const Today = () => {
         )
       })}
 
-      <form class="row time-block">
+      {/* <form class="row time-block">
         <div class="col-sm-1 hour">
           6am
         </div>
@@ -170,7 +170,7 @@ const Today = () => {
         <div id="btn20" class="col-sm-1 saveBtn">
           <i class="fas fa-save"></i>
         </div>
-      </form>
+      </form> */}
 
     </wrapper>
   )
