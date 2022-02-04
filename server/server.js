@@ -4,17 +4,14 @@ const { graphqlHTTP } = require('express-graphql');
 const {authMiddleware} = require('./utils/auth');
 const sequelize = require('./config/connection');
 
-
 const app = express();
 const PORT = process.env.PORT || 4000;
-
 
 app.use('/graphql', graphqlHTTP({
   // typeDefs,
   // resolvers,
   contest: authMiddleware,
 }));
-
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
