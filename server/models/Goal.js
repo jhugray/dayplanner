@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { findAll } = require('./User');
 
 class Goal extends Model {}
 
@@ -39,7 +38,7 @@ Goal.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post'
+    modelName: 'goal'
   }
 );
 
