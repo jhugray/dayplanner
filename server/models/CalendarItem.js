@@ -12,14 +12,19 @@ CalendarItem.init(
       autoIncrement: true
     },
     body: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 500]
+      }
     },
     completionStatus: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
     date: {
-      type: DataTypes.STRING,
+      //no timestamp
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     startHour: {
@@ -43,4 +48,3 @@ CalendarItem.init(
 );
 
 module.exports = CalendarItem;
-
