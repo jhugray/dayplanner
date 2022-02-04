@@ -1,16 +1,23 @@
-var express = require('express');
-var { graphqlHTTP } = require('express-graphql');
-const {typeDefs, resolvers} = require('./schemas');
+const express = require('express');
+const { graphqlHTTP } = require('express-graphql');
+// const {typeDefs, resolvers} = require('./schemas');
 const {authMiddleware} = require('./utils/auth');
+const sequelize = require('./config/connection');
 
-var app = express();
+
+const app = express();
+const PORT = process.env.PORT || 4000;
+
 
 app.use('/graphql', graphqlHTTP({
-  typeDefs,
-  resolvers,
+  // typeDefs,
+  // resolvers,
   contest: authMiddleware,
 }));
 
-app.listen(4000);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
 
 console.log('Running a GraphQL API server at http://localhost:4000/graphql');
