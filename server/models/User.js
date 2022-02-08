@@ -18,9 +18,16 @@ User.init(
       primaryKey: true,
       autoIncrement: true
     },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      match: [/.+@.+\..+/, 'Must be a valid email format']
+    },
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      trim: true
     },
     password: {
       type: DataTypes.STRING,

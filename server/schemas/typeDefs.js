@@ -5,6 +5,7 @@ type User {
   _id: ID
   username: String
   password: String
+  email: String
 }
 
 type CalendarItem {
@@ -38,15 +39,19 @@ type Auth {
 
 type Query {
   me: User
-// pick up here.... 
-
+  users: [User]
+  calendarItems: [CalendarItem]
+  goals: [Goals]
+  accomplishments: [Accomplishments]
 }
 
 type Mutation {
-
+  login(username: String!, password: String!, email: String!): Auth
+  addUser(username: String!, password: String!): Auth
+  addCalendarItem(body: String!, date: Dateonly!, startHour: Integer!): CalendarItem
+  addGoal(body: String!, date: Dateonly!): Goal
+  addAccomplishment(body: String!, date: Dateonly!): Accomplishment
 }
-
-
 `;
 
 module.exports = typeDefs;
