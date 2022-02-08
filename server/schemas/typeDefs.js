@@ -40,6 +40,8 @@ type Auth {
 type Query {
   me: User
   users: [User]
+  calendarItem(_id: ID!): CalendarItem
+  goal(_id: ID!): Goal
   calendarItems: [CalendarItem]
   goals: [Goals]
   accomplishments: [Accomplishments]
